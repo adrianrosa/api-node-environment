@@ -1,0 +1,13 @@
+{
+	"name": "api-projectx",
+	"version": "0.0.1",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"prestart": "npm install",
+		"start": "forever -w index.js"
+	},
+	"author": "",
+	"license": "MIT",
+	"dependencies": {}
+}

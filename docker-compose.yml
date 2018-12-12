@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    networks:
+      - sm
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    hostname: mysqldb
+    ports:
+     - "3307:3306"
+    volumes:
+    # - ./api/docker/db/my.cnf:/etc/mysql/my.cnf
+     - ./api/docker/db:/var/lib/mysql
+  api:
+    depends_on:
+      - mysqldb
+    build: ./api/docker
+    image: "api-sm:${TAG:-dev}"
+    networks:
+      - sm
+    ports:
+      - "${PORT:-3001}:3001"
+    volumes:
+      - ./api:/app
+networks:
+  sm:

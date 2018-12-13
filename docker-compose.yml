@@ -12,7 +12,7 @@ services:
     ports:
      - "3307:3306"
     volumes:
-    # - ./api/docker/db/my.cnf:/etc/mysql/my.cnf
+     - ./api/docker/db/my.cnf:/etc/mysql/my.cnf
      - ./api/docker/db/data:/var/lib/mysql
   api:
     depends_on:

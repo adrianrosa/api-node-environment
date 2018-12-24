@@ -10,5 +10,6 @@ COPY . /app
 
 # INSTALL FOREVER
 RUN npm install -g forever
+RUN npm install -g loopback-cli
 
 CMD ["npm", "start"]
